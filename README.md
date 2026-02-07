@@ -1,6 +1,14 @@
 # CharacterDataTool
 A .NET console application that can read, write, and delete JSON files
 
+## Features
+- Load character data from JSON
+- Create new characters
+- Edit existing characters
+- Delete characters
+- Save changes back to disk
+
+
 # How to use:
 <img width="578" height="274" alt="image" src="https://github.com/user-attachments/assets/f3f12a5e-8f30-418b-9259-c30a2e435273" />
 
@@ -27,8 +35,18 @@ A .NET console application that can read, write, and delete JSON files
 - When you want to delete a character, the application will give you the option to remove a character by selecting the number.
 
 
-  # How to check the JSON file
+
+ # How to check the JSON file
   - The character json file is located in the data folder of the build. You can modify the contents in the application, and the file will update accordingly. 
 
 
 
+
+## Tech
+- Language: C#
+- Framework: .NET
+- Data: JSON (System.Text.Json)
+- Type: Console Application
+
+
+ 

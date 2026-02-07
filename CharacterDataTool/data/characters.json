@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Aether",
+    "Class": "Warrior",
+    "Level": 10
+  },
+  {
+    "Name": "Lumine",
+    "Class": "Mage",
+    "Level": 8
+  },
+  {
+    "Name": "Durin",
+    "Class": "Warrior",
+    "Level": 21
+  },
+  {
+    "Name": "Wanderer",
+    "Class": "Warrior",
+    "Level": 90
+  }
+]

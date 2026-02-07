@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 
 //build path to json file
-var filePath = Path.Combine("data", "characters.json");
+var filePath = Path.Combine(AppContext.BaseDirectory, "data", "characters.json");
 
 //make sure the file exists
 if (!File.Exists(filePath))
@@ -53,7 +53,6 @@ void ShowMenu()
 {
     Console.WriteLine("What do you want to do?");
 
-
     Console.WriteLine("1. Add Character");
     Console.WriteLine("2. Edit Character");
     Console.WriteLine("3. Delete Character");
@@ -83,12 +82,20 @@ void ShowMenu()
     else
     {
         Console.WriteLine("Invalid option. Please try again.");
+        ShowCharacters(characters);
+        ShowMenu();
     }
 
 }
 
-
-
+void ShowCharacters(List<Character> characters)
+{
+    Console.WriteLine("Characters found:");
+    foreach (var character in characters)
+    {
+        Console.WriteLine($"{character.Name} - {character.Class} - Level {character.Level}");
+    }
+}
 
 void AddCharacter(List<Character> characters)
 {
@@ -137,6 +144,10 @@ void AddCharacter(List<Character> characters)
 
     Console.WriteLine("Character added successfully.");
 
+    
+
+    ShowCharacters(characters);
+    ShowMenu();
 }
 
 
@@ -210,6 +221,8 @@ void EditCharacter(List<Character> characters)
             File.WriteAllText(filePath, updatedJson);
 
             Console.WriteLine("Character updated successfully.");
+            ShowCharacters(characters);
+            ShowMenu();
         }
     }
 
@@ -218,6 +231,13 @@ void EditCharacter(List<Character> characters)
 
 void DeleteCharacter(List<Character> characters)
 {
+    if(characters.Count == 0)
+    {
+        Console.WriteLine("No characters to delete.");
+        ShowMenu();
+        return;
+    }
+
     //first ask which character to delete
     Console.WriteLine("Enter the number of the character you want to delete:");
 
@@ -248,6 +268,8 @@ void DeleteCharacter(List<Character> characters)
             File.WriteAllText(filePath, updatedJson);
 
             Console.WriteLine("Character deleted successfully.");
+            ShowCharacters(characters);
+            ShowMenu();
         }
     }
 }
